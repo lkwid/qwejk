@@ -45,18 +45,18 @@
 </div>
 <div class="categories container">
     <div class="row">
-      
         <div th:each="category : ${categories}" class="col s12 l4">
-            <a th:href="@{|/categories/${category.id}|}">
+          <a th:href="@{|/categories/${category.id}|}">
             <div class="card">
                 <div class="card-content">
                     <div class="card-title">
-                     
+
                         <a th:href="@{'/category/' + ${category.id}}" th:text="${category.name}">Category Name</a>
+
                     </div>
                 </div>
             </div>
-            </a>
+          </a>
         </div>
     </div>
 </div>

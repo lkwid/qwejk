@@ -42,4 +42,13 @@ public class GifRepository {
         }
         return favoriteList;
     }
+
+    public List<Gif> fingByCategoryId(int category) {
+        List<Gif> gifPerCategory = new ArrayList<>();
+        for (Gif gif : ALL_GIFS) {
+            if(gif.getCategory() == category)
+                gifPerCategory.add(gif);
+        }
+        return gifPerCategory;
+    }
 }

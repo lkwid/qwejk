@@ -15,6 +15,9 @@ public class CategoriesController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Autowired
+    private GifRepository gifRepository;
+
         // RequestMapping(value= "/categories", method = "{RequestMethod.POST"})
     @RequestMapping("/categories")
     public String listCategories(ModelMap modelMap) {
@@ -25,6 +28,7 @@ public class CategoriesController {
     @RequestMapping("/category/{id}")
     public String category(@PathVariable int id, ModelMap modelMap) {
         modelMap.addAttribute("category", categoryRepository.findById(id));
+        modelMap.addAttribute("gifs", gifRepository.fingByCategoryId(id));
         return "category";
     }
 }
