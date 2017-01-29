@@ -3,13 +3,15 @@ package lk.wid.model;
 public class Gif {
     private String name;
     private String username;
+    private int category;
 
     private boolean favorite;
 
-    public Gif(String name, String username, boolean favorite) {
+    public Gif(String name, String username, boolean favorite, int category) {
         this.name = name;
         this.username = username;
         this.favorite = favorite;
+        this.category = category;
     }
 
     public String getName() {
@@ -34,5 +36,13 @@ public class Gif {
 
     public void setFavorite(boolean favorite) {
         this.favorite = favorite;
+    }
+
+    public int getCategory() {
+        return category;
+    }
+
+    public void setCategory(int category) {
+        this.category = category;
     }
 }
