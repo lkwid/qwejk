@@ -1,5 +1,8 @@
 package lk.wid;
 
+import lk.wid.dao.CategoryDao;
+import lk.wid.dao.CategoryDaoImpl;
+import lk.wid.repository.CategoryRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
