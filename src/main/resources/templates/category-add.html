@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{default}">
+<head>
+    <meta charset="UTF-8">
+    <title>Dodaj kategorię</title>
+</head>
+<body>
+<div class="search-bar container" layout:fragment="content">
+    <div class="row">
+        <div class="col s12">
+            <form th:action="@{/category/add}" method="post">
+                <div class="input-field">
+                    <input type="text" th:field="${category.name}" placeholder="Dodaj kategorię..."
+                    data-success="right"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

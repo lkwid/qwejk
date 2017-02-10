@@ -9,10 +9,7 @@ import lk.wid.repository.GifRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,11 +39,23 @@ public class CategoriesController {
         return "category";
     }
 
-    @RequestMapping("/category/add")
+    @RequestMapping("/category/addAll")
     public String add() {
         for (Category category : categoryRepository.getAllCategories()) {
             categoryDao.saveCategory(new Category(category.getName()));
         }
         return "home";
+    }
+
+    @GetMapping("/category/add")
+    public String addCategory(ModelMap modelMap) {
+        modelMap.addAttribute("category", new Category());
+        return "category-add";
+    }
+
+    @PostMapping("/category/add")
+    public String createCategory(@ModelAttribute Category category) {
+        categoryDao.saveCategory(category);
+        return "redirect:add";
     }
 }
